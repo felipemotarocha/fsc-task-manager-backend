@@ -80,7 +80,9 @@ class TaskController {
             const taskToDelete = await TaskModel.findById(taskId);
 
             if (!taskToDelete) {
-                return res.status(404).send("Essa tarefa não foi encontrada.");
+                return this.res
+                    .status(404)
+                    .send("Essa tarefa não foi encontrada.");
             }
 
             const deletedTask = await TaskModel.findByIdAndDelete(taskId);
